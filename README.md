@@ -1,4 +1,4 @@
-# Movies
+npm# Movies
 Endpoint for popular movies for the list page: 
 
 https://api.themoviedb.org/3/movie/popular?api_key={api_key}&language=en-US&page=1

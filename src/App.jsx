@@ -1,5 +1,17 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home } from "./Routes/Home"
+import { MovieInfo } from "./Routes/MovieInfo"
+
 export const App = () => {
   return (
-    <h1>Movies</h1>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movies/:id" element={<MovieInfo />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
+
+
+export default App;
