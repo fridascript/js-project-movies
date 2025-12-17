@@ -100,6 +100,9 @@ export const MovieInfo = () => {
 
   if (!movie) return <p>Loading...</p>;
 
+  const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+
+
   // backgrop, movie poster and info
   return (
     <>
@@ -111,7 +114,8 @@ export const MovieInfo = () => {
       >
         <InfoRow>
           <Card>
-            <MovieCard movie={movie} />
+            {/* <MovieCard movie={movie} /> */}
+            <img src={posterUrl} alt={movie.title} />
           </Card>
           <InfoText>
             <Title>{movie.title}</Title>
