@@ -10,6 +10,7 @@ const Grid = styled.section`
   margin: 0;
 `;
 
+// component 
 export const Home = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);

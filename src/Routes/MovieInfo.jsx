@@ -4,6 +4,47 @@ import { useEffect, useState } from "react";
 import { MovieCard } from "../Components/MovieCard";
 import styled from "styled-components";
 
+//styling
+const InfoRow = styled.div`
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  background-color: transparent;
+`;
+
+const InfoText = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+`;
+
+const Backdrop = styled.div`
+ width: 100%;
+ height: 100vh;
+ background-size: cover;
+ background-position: center;
+ background-repeat: no-repeat;
+ position: relative; 
+`;
+
+const Card = styled.div`
+margin-left: 100px;
+margin-bottom: 30px;
+border: 2px solid white;
+max-width: 500px;
+max-height: 700px;
+`;
+const Title = styled.h1`
+margin-top: 350px;
+`
+const Info = styled.p`
+  `;
+
+
+//component 
 export const MovieInfo = () => {
 
   const { id } = useParams();
@@ -19,7 +60,7 @@ export const MovieInfo = () => {
 
   if (!movie) return <p>Loading...</p>;
 
-
+  // backgrop, movie poster and info
   return (
     <>
       {/* <NavLink>Movies</NavLink> */}
@@ -28,31 +69,17 @@ export const MovieInfo = () => {
           backgroundImage: `url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path})`
         }}
       >
-        <Card>
-          <MovieCard movie={movie} />
-        </Card>
-        <Title>{movie.title}</Title>
-        <Info>{movie.overview}</Info>
+        <InfoRow>
+          <Card>
+            <MovieCard movie={movie} />
+          </Card>
+          <InfoText>
+            <Title>{movie.title}</Title>
+            <Info>{movie.overview}</Info>
+          </InfoText>
+        </InfoRow >
       </Backdrop>
     </>
   );
 }
-
-const Backdrop = styled.div`
- width: 100%;
- height: 100vh;
- background-size: cover;
- background-position: center;
- background-repeat: no-repeat;
-`;
-
-
-const Card = styled.div`
-/* margin-top: 400px; */
-margin-left: 100px;
-margin-bottom: 30px;
-border: 2px solid white;
-max-width: 200px;
-max-height: 300px;
-`;
 
