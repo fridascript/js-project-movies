@@ -6,42 +6,82 @@ import styled from "styled-components";
 
 //styling
 const InfoRow = styled.div`
-  position: absolute;
-  bottom: 40px;
-  left: 40px;
+  position: relative;
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 30px;
   background-color: transparent;
+  padding: 50px;
+  width: 100%;
+  max-height: 100%;
+  z-index: 1;
+  box-sizing: border-box;
+
+  @media (max-width: 576px) {
+    flex-direction: column;  
+    align-items: flex-start;
+    justify-content: flex-end;
+    height: 100%;
+    padding: 40px;
+    gap: 15px;
+  }  
 `;
 
 const InfoText = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 600px;
+  flex: 1;
 `;
 
 const Backdrop = styled.div`
- width: 100%;
- height: 100vh;
- background-size: cover;
- background-position: center;
- background-repeat: no-repeat;
- position: relative; 
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative; 
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0)0%, rgba(0,0,0,0.9) 90%);
+  }
 `;
 
 const Card = styled.div`
-margin-left: 100px;
-margin-bottom: 30px;
 border: 2px solid white;
-max-width: 500px;
+flex: 1;
+max-width: 400px;
 max-height: 700px;
+flex-shrink: 0;
+line-height: 0;
+overflow: hidden;
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 576px) {
+  width: 250px;
+  height: auto;
+}
 `;
+
 const Title = styled.h1`
-margin-top: 350px;
+@media (max-width: 576px) {
+  margin-top: 0;
+}
 `
-const Info = styled.p`
-  `;
 
 
 //component 
@@ -75,7 +115,7 @@ export const MovieInfo = () => {
           </Card>
           <InfoText>
             <Title>{movie.title}</Title>
-            <Info>{movie.overview}</Info>
+            <p>{movie.overview}</p>
           </InfoText>
         </InfoRow >
       </Backdrop>
