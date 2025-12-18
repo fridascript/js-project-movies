@@ -113,7 +113,8 @@ export const MovieInfo = () => {
         <NavLink to="/"> ⬅ Movies</NavLink>
         <InfoRow>
           <Card>
-            <MovieCard movie={movie} />
+            {/* <MovieCard movie={movie} /> */}
+            <img src={posterUrl} alt={movie.title} />
           </Card>
           <InfoText>
             <TitleRow>
