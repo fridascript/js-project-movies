@@ -1,26 +1,23 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-// import { NavLink } from "../Components/NavLink";
-import { MovieCard } from "../Components/MovieCard";
 import styled from "styled-components";
+import NavLink from "../Components/NavLink";
+import { MovieCard } from "../Components/MovieCard";
 
 //styling
 const InfoRow = styled.div`
   position: absolute;
-  bottom: 40px;
-  left: 40px;
+  bottom: 10px;
   display: flex;
   align-items: flex-start;
   gap: 30px;
   background-color: transparent;
 `;
-
 const InfoText = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 400px;
 `;
-
 const Backdrop = styled.div`
  width: 100%;
  height: 100vh;
@@ -29,24 +26,41 @@ const Backdrop = styled.div`
  background-repeat: no-repeat;
  position: relative; 
 `;
-
 const Card = styled.div`
-margin-left: 100px;
-margin-bottom: 30px;
-border: 2px solid white;
-max-width: 500px;
-max-height: 700px;
+margin-left: 80px;
+margin-bottom: 20px;
+border: 6px solid white;
+max-width: 80%;
+max-height: 60%x;
+`;
+const TitleRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px; 
 `;
 const Title = styled.h1`
-margin-top: 350px;
+margin-top: 330px;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+
 `
+const Rating = styled.span`
+  background-color: #ffffffad;
+  color: black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  border-radius: 2px;
+  padding: 0.2rem 0.5rem;
+  font-size: 1rem;
+  margin-top: 330px;
+  `;
 const Info = styled.p`
+ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+
   `;
 
 
 //component 
 export const MovieInfo = () => {
-
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
 
@@ -60,21 +74,24 @@ export const MovieInfo = () => {
 
   if (!movie) return <p>Loading...</p>;
 
-  // backgrop, movie poster and info
+  // backdrop, movie poster and info
   return (
     <>
-      {/* <NavLink>Movies</NavLink> */}
       <Backdrop
         style={{
           backgroundImage: `url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path})`
         }}
       >
+        <NavLink to="/"> ⬅ Movies</NavLink>
         <InfoRow>
           <Card>
             <MovieCard movie={movie} />
           </Card>
           <InfoText>
-            <Title>{movie.title}</Title>
+            <TitleRow>
+              <Title>{movie.title}</Title>
+              <Rating> ⭐️ {movie.vote_average.toFixed(1)}</Rating>
+            </TitleRow>
             <Info>{movie.overview}</Info>
           </InfoText>
         </InfoRow >
