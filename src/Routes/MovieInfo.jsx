@@ -68,7 +68,7 @@ const Backdrop = styled.div`
   }
 `;
 
-const Card = styled.div`
+const Poster = styled.div`
   width: 100%; 
   height: 80%;
   max-width: 60%;
@@ -135,7 +135,7 @@ export const MovieInfo = () => {
   }, [id]);
 
   if (!movie) return <p>Loading...</p>;
-  const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+  const posterUrl = `https://image.tmdb.org/t/p/w342${movie.poster_path}`;
 
   //backdrop, movie poster and info
   return (
@@ -149,9 +149,9 @@ export const MovieInfo = () => {
           <NavLink to="/"> ⬅ Movies</NavLink>
         </TopNav>
         <InfoRow>
-          <Card>
+          <Poster>
             <img src={posterUrl} alt={movie.title} />
-          </Card>
+          </Poster>
           <InfoText>
             <TitleRow>
               <Title>{movie.title}</Title>
