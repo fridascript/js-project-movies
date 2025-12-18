@@ -1,11 +1,6 @@
-npm# Movies
-Endpoint for popular movies for the list page: 
+js-project-movies: 
+An app where you can scroll through movie alternatives, see each overview and rating by clicking at the movie poster. Built with React/React Router! 
 
-https://api.themoviedb.org/3/movie/popular?api_key={api_key}&language=en-US&page=1
-Don't forget to replace {api_key} with your API key if you copy and paste this.
+Link to netlify: 
 
-Endpoint for a movie's details
-https://api.themoviedb.org/3/movie/{movie_id}?api_key={api_key}&language=en-US
-Don't forget to replace {api_key} with your API key and {movie_id} with the id you get from the url via react-router if you copy and paste this.
-
-API KEY: a2b94bfec7b2f944f7fff21bcd94ef06
+By Asako Kanno & Frida Engman, Web development Bootcamp at Technigo 2025 
