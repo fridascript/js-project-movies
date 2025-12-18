@@ -9,9 +9,23 @@ const InfoRow = styled.div`
   position: absolute;
   bottom: 10px;
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 30px;
   background-color: transparent;
+  padding: 50px;
+  width: 100%;
+  max-height: 100%;
+  z-index: 1;
+  box-sizing: border-box;
+
+  @media (max-width: 576px) {
+    flex-direction: column;  
+    align-items: flex-start;
+    justify-content: flex-end;
+    height: 100%;
+    padding: 40px;
+    gap: 15px;
+  }  
 `;
 const InfoText = styled.div`
   display: flex;
@@ -19,12 +33,25 @@ const InfoText = styled.div`
   max-width: 400px;
 `;
 const Backdrop = styled.div`
- width: 100%;
- height: 100vh;
- background-size: cover;
- background-position: center;
- background-repeat: no-repeat;
- position: relative; 
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative; 
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0)0%, rgba(0,0,0,0.9) 90%);
+  }
 `;
 const Card = styled.div`
 margin-left: 80px;
@@ -38,6 +65,7 @@ const TitleRow = styled.div`
   align-items: center;
   gap: 10px; 
 `;
+
 const Title = styled.h1`
 margin-top: 330px;
 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
