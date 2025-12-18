@@ -56,7 +56,7 @@ export const MovieCard = ({ movie }) => {
           />
           <Overlay>
             <Title>{movie.title}</Title>
-            <ReleaseDate>{movie.release_date}</ReleaseDate>
+            <ReleaseDate>Released {movie.release_date}</ReleaseDate>
           </Overlay>
         </Link>
       </Card>
