@@ -7,13 +7,15 @@ text-decoration: none;
 font-weight: bold;
 font-size: Large;
 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-margin-left: 80px;
-margin-top: 40px;  
-display: inline-block;
+margin-left: 20px;
 transition: transform 0.2s ease;
 
   &:hover {
     transform: translateX(5px); 
+  }
+
+  @media (min-width: 768px) {
+    margin-left: 50px;
   }
 `;
 
